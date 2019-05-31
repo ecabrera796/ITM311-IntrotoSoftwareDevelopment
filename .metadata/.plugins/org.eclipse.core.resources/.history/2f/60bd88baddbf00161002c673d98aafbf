@@ -1,0 +1,16 @@
+	public class ExerciseExample {
+	public static void main(String args[]) {
+	  
+	  int count = 1;
+	  double balance = 1000, rate = 0.10;
+		
+	  System.out.println("year\t" + "balance\n");
+	  		
+	  while(count <= 3)
+	  {
+	    balance + = balance * rate;
+	    System.out.println(count + "\t$" + balance);
+	    count++;
+	  }
+} }//end main ... end class   
+

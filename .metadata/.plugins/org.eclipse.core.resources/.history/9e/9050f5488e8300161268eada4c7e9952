@@ -1,0 +1,21 @@
+/* Erick Cabrera
+ * September 25, 2016
+ */
+
+import java.util.Scanner;
+
+public class DeansList {
+	public static void main(String args[]){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("What is the student's current status? (Half or Full)");
+		String status = sc.nextLine();
+		System.out.println("What is the student's GPA?");
+		double gpa = sc.nextDouble();
+		if(gpa >= 3.50 && status.equalsIgnoreCase("Full")){
+			System.out.println("This student belongs on the Dean's List");
+		} else{
+			System.out.println("This student does not belong on the Dean's List.");
+		}
+	}
+	
+}

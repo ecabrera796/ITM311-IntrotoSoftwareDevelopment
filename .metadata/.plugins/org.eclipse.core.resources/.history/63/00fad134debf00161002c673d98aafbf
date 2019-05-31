@@ -1,0 +1,13 @@
+	public class TestLoop {
+	public static void main(String args[]) {
+	  
+		  int count = 1;
+		  int sum = 1;
+			
+		  while(count < 5)  {
+		    System.out.println(count + "\t" + sum);
+		    count += sum;
+		  }
+
+
+} }//end main ... end class   

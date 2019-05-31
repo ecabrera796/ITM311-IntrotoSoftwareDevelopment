@@ -1,0 +1,133 @@
+//import com.sun.org.apache.xpath.internal.operations.Bool;
+
+import java.io.IOException;
+//import java.io.BufferedReader;
+//import java.io.InputStreamReader;
+import java.util.Objects;
+
+public class ATM {
+    public static void main(String args[]) throws IOException {
+        //BufferedReader ec = new BufferedReader(new InputStreamReader(System.in));
+        //Display screen = new Display();
+        Checking checkingAccount = new Checking(3000.00);
+        Savings savingsAccount = new Savings(3000.00);
+        Mortgage mortgageLoan = new Mortgage(-250000.00);
+        Student studentLoan = new Student(-55000.00);
+        Auto autoLoan = new Auto(-45000.00);
+        Personal personalLoan = new Personal(-4000.00);;
+        String PIN = "";
+        //char answer = 'Y';
+
+        // set PIN
+        PIN = Display.inputDialog("********* IIT BANK AND TRUST COMPANY *********" + "\n" +
+        						  "                   Please set your 4-Digit PIN" + "\n" + 
+        						  "                    (Between 0100 and 8888)");
+        int checkPIN = Integer.parseInt(PIN);
+        Boolean okPIN = checkPIN > 0100 && checkPIN < 8888;
+
+        if(!okPIN) {
+            PIN = Display.inputDialog("The PIN is invalid. Please try again.");
+            checkPIN = Integer.parseInt(PIN);
+            okPIN = checkPIN > 100 && checkPIN < 8888;
+        }
+   
+        Display.messageDialog("PIN set. Thank you!");
+
+        // Login
+        int loginAttempts = 3;
+        String userPIN = Display.inputDialog("Please enter your PIN number.");
+        Boolean okLogin = Objects.equals(userPIN, PIN);
+        
+        if(!okLogin){
+            userPIN = Display.inputDialog("The PIN you have entered is invalid. Please try again. You have " + loginAttempts + " login attempts left.");
+            okLogin = Objects.equals(userPIN, PIN);
+        }
+
+
+
+        while (true) {
+//            Welcome to your Bank account
+            Display.messageDialog("Welcome to your Bank account!");
+
+
+//            Account access, Savings Account
+            String account = Display.inputDialog("What account do you want to access?\nThe options are [S]avings Account, [C]hecking Account and  [L]oan payments");
+            if (Objects.equals(account, "s")) {
+                String input = Display.inputDialog("SAVINGS ACCOUNT\nWhat action do you want to do?\n[d]eposit, [w]ithdraw, [b]alance");
+
+                if (Objects.equals(input, "d")) {
+                    String amount = Display.inputDialog("How much do you want to deposit?");
+                    savingsAccount.deposit(Double.parseDouble(amount));
+                    savingsAccount.displayBalance();
+                } else if (Objects.equals(input, "b")) {
+                    savingsAccount.displayBalance();
+                } else if (Objects.equals(input, "w")) {
+                    String amount = Display.inputDialog("How much do you want to withraw?");
+                    savingsAccount.withdraw(Double.parseDouble(amount));
+                    savingsAccount.displayBalance();
+                } else {
+                    Display.messageDialog("Invalid Input!");
+                }
+            } else if (Objects.equals(account, "c")) {
+//              CHECKING ACCOUNT ACCESS
+                String input =Display.inputDialog(" ------------CHECKING ACCOUNT---------------- \nWhat action do you want to do?\n[w]rite check, [b]alance");
+
+                if (Objects.equals(input, "w")) {
+                    String amount =Display.inputDialog("How much do you want to write a check for?");
+                    checkingAccount.Checks(Double.parseDouble(amount));
+                    checkingAccount.showBalance();
+                } else if (Objects.equals(input, "b")) {
+                    checkingAccount.showBalance();
+                } else {
+                    Display.messageDialog("Invalid input!");
+                }
+            } else if (Objects.equals(account.toLowerCase(), "l")) {
+
+                String loanAccount = Display.inputDialog(" Which loan account do you want to access?\n [a]uto loan, [p]ersonal loan, [m]ortgage, [s]tudent loan");
+                if (Objects.equals(loanAccount, "a")) {
+                    String loanAction =Display.inputDialog("------------AUTO LOAN----------------\nDo you want to make a [p]ayment or check your [b]alance?"); ;
+                    if (Objects.equals(loanAction, "p")) {
+                        autoLoan.Payment();
+                        autoLoan.showBalance();
+                    } else if (Objects.equals(loanAction, "b")) {
+                        autoLoan.showBalance();
+                    } else {
+                        Display.messageDialog("Invalid input!");
+                    }
+  //                    PERSONAL ACCOUNT ACCESS
+                } else if (Objects.equals(loanAccount, "p")) {
+                    String loanAction = Display.inputDialog(" -------------PERSONAL LOAN-----------\nDo you want to make a [p]ayment or check your [b]alance?");
+                    if (Objects.equals(loanAction, "p")) {
+                        personalLoan.Payment();
+                        personalLoan.showBalance();
+                    } else if (Objects.equals(loanAction, "b")) {
+                        personalLoan.showBalance();
+                    } else {
+                        Display.messageDialog("Invalid input!");
+                    }
+ //                   MORTGAGE ACCOUNT ACCESS
+                } else if (Objects.equals(loanAccount, "m")) {
+                    String loanAction = Display.inputDialog("-------------MORTGAGE LOAN-----------\nDo you want to make a [p]ayment or check your [b]alance?");
+                    if (Objects.equals(loanAction, "p")) {
+                        mortgageLoan.Payment();
+                        mortgageLoan.showBalance();
+                    } else if (Objects.equals(loanAction, "b")) {
+                        mortgageLoan.showBalance();
+                    } else {
+                        Display.messageDialog("Invalid input!");
+                    }
+                } else if (Objects.equals(loanAccount, "s")) {
+                    String loanAction =  Display.inputDialog(" -------------STUDENT LOAN-----------\nDo you want to make a [p]ayment or check your [b]alance?");
+                    if (Objects.equals(loanAction, "p")) {
+                        studentLoan.Payment();
+                        studentLoan.showBalance();
+                    } else if (Objects.equals(loanAction, "b")) {
+                        studentLoan.showBalance();
+                    } else {
+                        Display.messageDialog("Invalid input!");
+                    }
+                }
+            }
+        }
+    }
+}

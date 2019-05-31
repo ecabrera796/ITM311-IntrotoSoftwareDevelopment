@@ -1,0 +1,11 @@
+	public class TestLoop {
+	public static void main(String args[]) {
+	  
+		  int count = 0;
+		  for (int i = 10; i >= 1; i -= 3) {
+		    count++;
+			    System.out.println("loop iteration" + "\t" + count);
+			  } 
+
+
+} }//end main ... end class   

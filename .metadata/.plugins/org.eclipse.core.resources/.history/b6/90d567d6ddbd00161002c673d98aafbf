@@ -1,0 +1,17 @@
+import javax.swing.*;
+
+public class Checking {
+    double balance;
+    public Checking(double initialBalance){
+        balance = initialBalance;
+    }
+
+    public void writeCheck(double amount) {
+        balance -= amount;
+    }
+
+    ;
+    public void displayBalance(){
+        JOptionPane.showMessageDialog(null, "Current account balance is: $"+balance);
+    }
+}

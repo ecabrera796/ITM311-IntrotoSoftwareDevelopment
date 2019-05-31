@@ -1,0 +1,15 @@
+	public class TestLoop {
+	public static void main(String args[]) {
+	  
+		  int fact = 1;
+		  int count = 1;
+		  int num = 0;
+		while(count <= num)
+		  {
+		    fact *= count;
+		    count++;
+		  }
+		  System.out.println(num + " factorial equals " + fact);
+
+
+} }//end main ... end class   

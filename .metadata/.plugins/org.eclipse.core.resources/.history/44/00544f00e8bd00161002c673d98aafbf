@@ -1,0 +1,19 @@
+import javax.swing.*;
+
+public class StudentLoan {
+    private double balance;
+    private static final double MINIMUM_PAYMENT = 200;
+
+    public StudentLoan(double initialBalance) {
+        balance = initialBalance;
+    }
+
+    public void makePayment() {
+        balance += MINIMUM_PAYMENT;
+    }
+
+
+    public void displayBalance(){
+        JOptionPane.showMessageDialog(null, "Current account balance is: $"+balance);
+    }
+}

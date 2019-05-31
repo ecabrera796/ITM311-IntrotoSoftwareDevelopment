@@ -1,0 +1,29 @@
+//program to demo StringBuilder
+import java.util.Arrays;
+
+//program to demo StringBuilder
+public class ArrayAnimals
+{
+  public static void main(String[] args)
+  {
+	  StringBuilder sb = new StringBuilder();
+    String Animals[] = {"Lion","Tiger","Bear","Zebra" ,"Elephant","Chimpanzee","Rhinoceros"};
+  
+for(int i =0; i<Animals.length;i++) 
+     sb.append(Animals[i]);
+     sb.append("Hyena");
+     System.out.println(sb);
+     //delete Zebra..Find start and end position of Zebra 
+     sb.delete(13,18);
+   //display the String;
+    System.out.println(sb);
+    
+    Arrays.sort(Animals);
+    for (String Animal:Animals)
+    System.out.println("The sorted int array is: " + Animal);    
+
+    sb.reverse();
+    System.out.println("Reversed array is: ");
+    System.out.println(sb);  
+  }
+}

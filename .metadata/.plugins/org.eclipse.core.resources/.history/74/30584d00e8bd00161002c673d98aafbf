@@ -1,0 +1,24 @@
+import javax.swing.*;
+
+
+public class Savings {
+    private double balance;
+
+    public Savings(double initialBalance){
+        balance = initialBalance;
+    }
+
+    public void deposit(double amount){
+        balance = balance + amount;
+    }
+    public void withdraw(double amount){
+        balance = balance - amount;
+    }
+    public void printBalance(){
+        System.out.println("Current account balance is: $"+balance);
+    }
+    public void displayBalance(){
+        JOptionPane.showMessageDialog(null, "Current account balance is: $"+balance);
+    }
+
+}

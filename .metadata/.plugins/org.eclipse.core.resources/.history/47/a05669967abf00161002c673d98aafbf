@@ -1,0 +1,17 @@
+import javax.swing.*;
+
+public class CheckingAccount {
+    double balance;
+    public CheckingAccount(double initBal){
+        balance = initBal;
+    }
+
+    public void Checks(double amnt) {
+        balance -= amnt;
+    }
+
+    ;
+    public void showBalance(){
+        JOptionPane.showMessageDialog(null, "Balance is: $" + balance);
+    }
+}

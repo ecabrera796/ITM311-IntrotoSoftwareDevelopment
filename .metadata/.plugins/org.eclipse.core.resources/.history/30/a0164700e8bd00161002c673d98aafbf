@@ -1,0 +1,20 @@
+import javax.swing.*;
+
+public class Personal {
+    private double balance;
+    private static final double MINIMUM_PAYMENT = 2000;
+
+    public Personal(double initialBalance) {
+        balance = initialBalance;
+    }
+
+    public void makePayment() {
+        balance += MINIMUM_PAYMENT;
+    }
+
+
+    public void displayBalance(){
+        JOptionPane.showMessageDialog(null, "Current account balance is: $"+balance);
+    }
+
+}
